@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Genre(models.Model):
@@ -31,5 +32,8 @@ class Book(models.Model):
 
     def display_genre(self):
         return ', '.join([genre.name for genre in self.genre.all()])
+
+    def get_book_url(self):
+        return reverse('catalog-book', args=[self.id])
 
     display_genre.short_description = "Genre"

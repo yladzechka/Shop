@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content %}    
 <main class="form-signin text-center container">
 
-  {% if form.errors %}
-    <div class="alert alert-danger alert-dismissible">
-      <strong>Error!</strong> {{form.errors}}
+  {% if user_form.errors %}
+  
+    <div class="alert alert-danger">
+      <strong>Error!</strong> {{user_form.errors}}
     </div>
+
   {% endif %}
 
   <form method="post">
@@ -18,18 +20,18 @@
     </div>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput2" name="email" placeholder="Email">
+      <input type="email" class="form-control" id="floatingInput2" name="email" placeholder="Email">
       <label for="floatingInput2">Email</label>
     </div>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput3" name="first-name" placeholder="Your name">
-      <label for="floatingInput3">Username</label>
+      <input type="text" class="form-control" id="floatingInput3" name="first_name" placeholder="Your name">
+      <label for="floatingInput3">Your name</label>
     </div>
 
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingInput4" name="last-name" placeholder="Your surname">
-      <label for="floatingInput4">Your name</label>
+      <input type="text" class="form-control" id="floatingInput4" name="last_name" placeholder="Your surname">
+      <label for="floatingInput4">Your surname</label>
     </div>
 
     <div class="form-floating">
@@ -43,7 +45,6 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Create new account</button>
-
   </form>
 </main>
 {% endblock %}
