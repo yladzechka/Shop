@@ -42,7 +42,10 @@
 
               <div class="card-body">
                 <p class="card-text">Title: {{book.title}}</p>
-                <p class="card-text">Author: {{book.author}}</p>
+                <p>
+                    <a type="button" class="btn btn-sm btn-outline-secondary"
+                      href="{{ book.author.get_author_url }}">Author: {{book.author}}</a>
+                  </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ book.get_book_url }}">Show</a>
