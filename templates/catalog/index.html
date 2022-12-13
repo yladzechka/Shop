@@ -24,7 +24,7 @@
   </a><div class="navbar navbar-dark bg-dark shadow-sm"><a href="#" class="text-white">
     </a><div class="container"><a href="#" class="text-white">
       </a><a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>{% if author %} {{author.last_name}}'s Catalog {% else %} Book Catalog {% endif %}</strong>
+        <strong>{% if author %} {{author.last_name}}'s Catalog {% elif genre %} {{genre}}'s Catalog {% else %}Book Catalog {% endif %}</strong>
       </a>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Переключить навигацию">
         <span class="navbar-toggler-icon"></span>
@@ -34,26 +34,25 @@
 </header>
 <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-5">
         {% for book in books%}
           <div class="col">
             <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="30%" height="450px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Эскиз" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Эскиз</text></svg>
-
-              <div class="card-body">
-                <p class="card-text">Title: {{book.title}}</p>
+              <img src="{{book.image.url}}" width="100%" height="300px">
+              <div class="card-body" style="height: 100%">
+                <p class="card-text" style="height: 33px">Title: {{book.title}}</p>
                 <p>
                     <a type="button" class="btn btn-sm btn-outline-secondary"
                       href="{{ book.author.get_author_url }}">Author: {{book.author}}</a>
                   </p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
+                  <div class="btn-group" style="width: 100%">
                     <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ book.get_book_url }}">Show</a>
                     <a type="button" class="btn btn-primary">Add to cart</a>
                   </div>
-                  <span class="badge bg-success">{{book.price}}$</span>
                 </div>
               </div>
+              <span class="badge bg-success">{{book.price}}$</span>
             </div>
           </div>
         {% endfor %}

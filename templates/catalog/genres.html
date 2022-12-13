@@ -4,18 +4,15 @@
 <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-5">
-        {% for author in authors %}
+        {% for genre in genres %}
           <div class="col">
             <div class="card shadow-sm">
-                <img src="{{author.photo.url}}" width="100%" height="300px">
+                <img src="{{genre.image.url}}" width="100%">
                 <div class="card-body">
-                <p class="card-text">Author: {{author}}</p>
-                    <p class="card-text">
-                        <span class="badge bg-dark">{{ author.date_of_birth }} - {% if author.date_of_death %} {{ author.date_of_death }} {% else %} Present {% endif %}</span>
-                    </p>
+                <p class="card-text">{{genre}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ author.get_author_url }}">Show {{ author.last_name }}'s books</a>
+                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ genre.get_genre_url }}">Show {{genre}}'s books</a>
                   </div>
                 </div>
               </div>
